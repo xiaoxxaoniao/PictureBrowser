@@ -3,6 +3,7 @@ package me.joysinfo.http;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 
+import android.content.Context;
 import android.util.Log;
 
 import com.loopj.android.http.AsyncHttpClient;
@@ -27,6 +28,16 @@ public class NetworkUtils {
 	      client.post(getAbsoluteUrl(page,word), params, responseHandler);
 	  }
 
+	  
+	  //œ¬‘ÿÕº∆¨
+	  public static void loadImage(Context context,String url,AsyncHttpResponseHandler responseHandler){
+	    	client.cancelRequests(context, true);
+	    	client.post(url, responseHandler);
+	    }
+	  
+	  
+	  
+	  
 	  private static String getAbsoluteUrl(int page,String word) {
 		  String url="";
 	      try {
@@ -37,4 +48,5 @@ public class NetworkUtils {
 	      Log.d("CUI","url:"+url);
 	  	return url;
 	  }
+	  
 }
