@@ -32,10 +32,11 @@ import android.app.Activity;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.drawable.BitmapDrawable;
 public class MainActivity extends Activity implements PictureImp{
 	private FlipViewController flipView;
     private ArrayList<String> pictureUrls;
-    private int page=1;
+    private int page=2;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -117,6 +118,7 @@ private static class MyBaseAdapter extends BaseAdapter {
               this.Urls=Urls;
               
               options = new DisplayImageOptions.Builder()
+            //  .showImageOnLoading(new BitmapDrawable(BitmapFactory.decodeResource(context.getResources(),R.drawable.loading)))
       		  .showImageForEmptyUri(R.drawable.ic_launcher)
       		  .showImageOnFail(R.drawable.ic_launcher)
       		  .cacheInMemory(false)
